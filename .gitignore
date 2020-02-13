@@ -1,0 +1,27 @@
+*~
+bin
+obj
+*.user
+*.suo
+*.bak
+*.sln.cache
+_ReSharper*
+*/build
+*/test-results
+*.pidb
+*.usertasks
+*.userprefs
+*.orig
+*.tmp
+Gemfile.lock
+~*
+
+.build/
+AssemblyVersion.cs
+/database/Release Scripts/*.sql
+/.vs/
+/packages/
+/node_modules/
+package-lock.json
+coverage.json
+TestResults/*
