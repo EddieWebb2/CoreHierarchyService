@@ -23,8 +23,8 @@ var config = {
 }
 
 var octopus = {
-    apiKey: 'API-FZB0DV0BTJMZNA3QYABKW4KQOM',
-    host: 'http://mtg-tfs-cc:8888',
+    apiKey: '<>',
+    host: '<>',
     packages: '/nuget/packages'
 }
 
