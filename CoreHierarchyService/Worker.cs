@@ -49,7 +49,7 @@ namespace CoreHierarchyService
 
                 Log.Information($"Worker running at: {DateTime.Now}");
 
-                var result = await _client.GetAsync("https://www.<SOME DOMAIN FOR TESTING>.com");
+                var result = await _client.GetAsync("https://www.google.com");
 
                 await Task.Delay(5000, stoppingToken);
             }

@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using Serilog.Events;
 
 namespace CoreHierarchyService.Infrastructure
 {
     public class CoreHierarchyServiceConfiguration : ICoreHierarchyServiceConfiguration
     {
+        public string DBConnection { get; set; }
+        
         public Uri LoggingEndpoint { get; set; }
         public bool EnableElasticLogging { get; set; }
         public LogEventLevel ElasticLoggingLevel { get; set; }
@@ -14,9 +18,13 @@ namespace CoreHierarchyService.Infrastructure
         public string SoftwareName { get; set; }
         
 
-        public CoreHierarchyServiceConfiguration()
+        public IDbConnection OpenConnection()
         {
-            // Add my ORM initialise... EF6 or Dapper either or
+            var connection = new SqlConnection(DBConnection);
+            connection.Open();
+
+            return connection;
         }
+
     }
 }

@@ -1,5 +1,9 @@
 ﻿using System.Collections.Generic;
+using CoreHierarchyService.Cqrs.Queries;
+using CoreHierarchyService.Infrastructure;
+using CoreHierarchyService.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Serialization;
 
 namespace CoreHierarchyService.Controllers
 {
@@ -9,11 +13,29 @@ namespace CoreHierarchyService.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        // GET: api/User
-        [HttpGet]
-        public IEnumerable<string> Get()
+
+        private readonly ICoreHierarchyServiceConfiguration _config;
+
+        //// GET: api/User
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
+
+        public UserController(ICoreHierarchyServiceConfiguration config)
         {
-            return new string[] { "value1", "value2" };
+            _config = config;
+        }
+
+
+        [HttpGet]
+        public IEnumerable<User> Get()
+        {
+            var result = new GetAllUsers(_config);
+            
+            
+            return result.GetUserList();
         }
 
         // GET: api/User/5
